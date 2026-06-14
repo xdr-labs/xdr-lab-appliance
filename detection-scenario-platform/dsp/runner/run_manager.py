@@ -300,6 +300,7 @@ class RunManager:
                         RemoteEventCollectionRequest(
                             remote_execution_id=str(remote_execution_id),
                             remote_bundle_path=str(remote_bundle_path),
+                            diagnostics_dir=run_dir,
                         ),
                         provider,
                         store,
