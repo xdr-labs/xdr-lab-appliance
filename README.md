@@ -6,10 +6,17 @@ sensor placement, and reverse-NAT external access. The appliance is
 operated through a single Python CLI (`aella_cli`) backed by a shell
 runtime engine.
 
-> **Project root**: `/home/aella/xdr-lab-appliance` — this is the **only**
-> official source of truth. Older locations (`/home/aella/Stellar appliance cli`,
+> **Project root**: `/home/aella/xdr-lab-appliance` — official source of truth for
+> **lab deployment automation** (`aella_cli`, KVM/OVS, cloud-init, installer).
+> Older locations (`/home/aella/Stellar appliance cli`,
 > `/home/aella/xdr-lab-cloudinit`, `/home/aella/cloudinit`) are retained as
 > read-only references until the operator confirms migration parity.
+
+> **DSP / PoC scenarios** are **not** maintained in this repository. Use the
+> external repo `git@github.com:RickLee-kr/xdr-poc-script.git` (branch
+> `release/v1.4.0-rc`). See `docs/DSP_EXTERNAL_DEPENDENCY.md` and
+> `docs/REPOSITORY_BOUNDARY.md`. Do **not** commit a `detection-scenario-platform/`
+> subtree here.
 
 ---
 

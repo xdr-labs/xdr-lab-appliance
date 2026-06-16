@@ -21,7 +21,7 @@ VERBOSE=true
 POC_START_EPOCH=$(date +%s)
 
 # shellcheck disable=SC1091
-source "${ROOT}/stellar_poc.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc.sh"
 
 LOCAL_STATE_DIR="${smoke_env}/state"
 mkdir -p "${LOCAL_STATE_DIR}"

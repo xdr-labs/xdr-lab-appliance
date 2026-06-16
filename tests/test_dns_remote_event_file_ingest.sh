@@ -25,7 +25,7 @@ export DNS_TUNNEL_MAX_SENT_CAP=5000
 export REMOTE_STATE_DIR="/tmp/.poc_runtime_root/state"
 
 # shellcheck disable=SC1091
-source "${ROOT}/stellar_poc.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc.sh"
 
 LOCAL_STATE_DIR="${TMPDIR:-/tmp}/poc_dns_remote_ev_test_$$"
 POC_RUN_ID="dns-remote-ev-test"
@@ -33,7 +33,7 @@ LOG_DIR="${LOCAL_STATE_DIR}/logs"
 DRY_RUN=true
 mkdir -p "${LOCAL_STATE_DIR}" "${LOG_DIR}"
 
-if python3 -m py_compile "${ROOT}/stellar_dns_tunnel_file_client.py" 2>/dev/null; then
+if python3 -m py_compile "${ROOT}/legacy/bash-poc/stellar_dns_tunnel_file_client.py" 2>/dev/null; then
     pass "stellar_dns_tunnel_file_client.py syntax OK"
 else
     fail "stellar_dns_tunnel_file_client.py syntax error"

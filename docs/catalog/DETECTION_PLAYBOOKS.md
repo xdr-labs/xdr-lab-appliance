@@ -1,9 +1,12 @@
 # DSP Detection Playbooks
 
+> **Repository note:** DSP lives in `xdr-poc-script`. Replace paths below with your
+> external checkout. See `docs/DSP_EXTERNAL_DEPENDENCY.md`.
+
 **문서 버전:** 1.0.0 (Phase 17)  
 **상태:** Operator validation playbooks  
 **S3 default (Phase 18):** Manual operator evidence — `--confirm-detection` (no API token).  
-Experimental HTTP: `--stellar-client http` — see `detection-scenario-platform/docs/experimental/STELLAR_HTTP_API_MODE.md`.
+Experimental HTTP: `--stellar-client http` — see `xdr-poc-script/docs/experimental/STELLAR_HTTP_API_MODE.md`.
 
 ---
 
@@ -33,7 +36,7 @@ Experimental HTTP: `--stellar-client http` — see `detection-scenario-platform/
 **Execute:**
 
 ```bash
-cd detection-scenario-platform
+cd /path/to/xdr-poc-script
 source .venv/bin/activate
 export DSP_RUNS_DIR=/path/to/lab-evidence/runs
 

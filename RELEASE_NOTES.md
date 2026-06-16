@@ -1,4 +1,11 @@
-# DSP v1.2.1 Release Notes
+# DSP Release Notes (Historical Archive)
+
+> **Moved:** DSP release notes now live in
+> [xdr-poc-script](https://github.com/RickLee-kr/xdr-poc-script). The content
+> below documents releases that were shipped while DSP lived inside
+> `xdr-lab-appliance/detection-scenario-platform/`. That subtree has been removed.
+
+---
 
 **Version:** 1.2.1  
 **Date:** 2026-06-09 (UTC)  

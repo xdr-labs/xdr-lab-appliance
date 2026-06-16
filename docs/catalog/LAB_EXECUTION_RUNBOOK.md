@@ -1,5 +1,9 @@
 # DSP Lab Execution Runbook
 
+> **Repository note (2026-06):** DSP source moved to
+> `git@github.com:RickLee-kr/xdr-poc-script.git`. Replace `cd detection-scenario-platform`
+> with your `xdr-poc-script` checkout. See `docs/DSP_EXTERNAL_DEPENDENCY.md`.
+
 **문서 버전:** 1.0.0 (Phase 17)  
 **상태:** Operator runbook  
 **대상:** Lab Operator, PoC Engineer, Customer Success Engineer
@@ -11,7 +15,7 @@
 ### 1.1 Software Prerequisites
 
 ```bash
-cd detection-scenario-platform
+cd /path/to/xdr-poc-script   # git clone git@github.com:RickLee-kr/xdr-poc-script.git
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"

@@ -1,5 +1,8 @@
 # DSP Customer Demo Guide
 
+> **Repository note:** DSP lives in `xdr-poc-script`, not this appliance repo.
+> See `docs/DSP_EXTERNAL_DEPENDENCY.md`.
+
 **문서 버전:** 1.0.0 (Phase 17)  
 **상태:** Customer-facing demo guide  
 **대상:** Sales Engineer, PoC Engineer, Customer Success Engineer
@@ -11,7 +14,7 @@
 ### Prerequisites
 
 ```bash
-cd detection-scenario-platform
+cd /path/to/xdr-poc-script
 source .venv/bin/activate
 dsp plugins list   # 9 production scenarios ACTIVE 확인
 ```

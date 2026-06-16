@@ -21,9 +21,9 @@ export LOG_DIR="${LOCAL_STATE_DIR}/logs"
 export REPORT_DIR="${LOCAL_STATE_DIR}/report"
 
 # shellcheck disable=SC1091
-source "${ROOT}/stellar_poc.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc.sh"
 # shellcheck disable=SC1091
-source "${ROOT}/stellar_poc_followup.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc_followup.sh"
 
 LOCAL_STATE_DIR="${TMPDIR:-/tmp}/poc_sot_test_$$"
 POC_RUN_ID="sot-test"

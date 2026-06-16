@@ -28,7 +28,7 @@ export HAS_dig=true
 export WEBSHELL_CMD_STYLE=raw
 
 # shellcheck disable=SC1091
-source "${ROOT}/stellar_poc.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc.sh"
 
 LOCAL_STATE_DIR="${TMPDIR:-/tmp}/poc_dns_new_tld_test_$$"
 EFFECTIVE_REPORT_DIR="${LOCAL_STATE_DIR}/report"

@@ -10,7 +10,7 @@ pass() { echo "PASS $1"; PASS=$((PASS + 1)); }
 fail() { echo "FAIL $1: $2" >&2; FAIL=$((FAIL + 1)); }
 
 run_poc_dry() {
-    "${ROOT}/stellar_poc.sh" --dry-run \
+    "${ROOT}/legacy/bash-poc/stellar_poc.sh" --dry-run \
         --target-net 221.139.249.0/24 \
         --webshell http://127.0.0.1/shell.jsp \
         --attacker-ip 221.139.249.110 --attacker-port 5000 \
@@ -21,7 +21,7 @@ out="$(mktemp)"
 comp_out="$(mktemp)"
 trap 'rm -f "${out}" "${comp_out}"' EXIT
 
-if bash -n "${ROOT}/stellar_poc_fast_safe.sh"; then
+if bash -n "${ROOT}/legacy/bash-poc/stellar_poc_fast_safe.sh"; then
     pass "bash -n stellar_poc_fast_safe.sh"
 else
     fail "bash -n stellar_poc_fast_safe.sh" "syntax error"

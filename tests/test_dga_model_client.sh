@@ -25,7 +25,7 @@ export DGA_MODEL_NX_COUNT=500
 export DGA_MODEL_RESOLVABLE_COUNT=30
 
 # shellcheck disable=SC1091
-source "${ROOT}/stellar_poc.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc.sh"
 
 LOCAL_STATE_DIR="${TMPDIR:-/tmp}/poc_dga_model_test_$$"
 POC_RUN_ID="dga-model-test"
@@ -35,7 +35,7 @@ export LOCAL_STATE_DIR LOG_DIR POC_RUN_ID DRY_RUN
 poc_sot_paths_init 2>/dev/null || true
 
 # --- Python client dry-run: required logs ---
-out=$(python3 "${ROOT}/stellar_dga_model_client.py" --dry-run-sot --run-id test \
+out=$(python3 "${ROOT}/legacy/bash-poc/stellar_dga_model_client.py" --dry-run-sot --run-id test \
     --base-domain xdr.ooo --nx-count 500 --resolvable-count 30 2>&1 || true)
 
 for pat in DGA_TARGET_DOMAIN DGA_PHASE1_START DGA_PHASE1_PROGRESS DGA_PHASE1_DONE \

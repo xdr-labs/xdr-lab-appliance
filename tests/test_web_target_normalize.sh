@@ -40,7 +40,7 @@ assert_fail_norm() {
 }
 
 # shellcheck source=stellar_poc.sh
-source "${ROOT}/stellar_poc.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc.sh"
 
 DRY_RUN=true
 LOCAL_STATE_DIR=$(mktemp -d)

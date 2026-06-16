@@ -26,7 +26,7 @@ export DNS_NEW_TLD_ENABLED=true
 mkdir -p "${REMOTE_STATE_DIR}/events" "${LOG_DIR}"
 
 # shellcheck disable=SC1091
-source "${ROOT}/stellar_poc.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc.sh"
 
 LOCAL_STATE_DIR="${TMPDIR:-/tmp}/poc_dga_ntld_sot_$$"
 POC_RUN_ID="dga-ntld-sot-test"

@@ -29,7 +29,7 @@ export DNS_TUNNEL_MAX_SENT_CAP=5000
 printf '10.0.0.10\n10.0.0.20\n10.0.0.30\n' > "${LOCAL_STATE_DIR}/remote_hosts/alive_hosts.txt"
 
 # shellcheck disable=SC1091
-source "${ROOT}/stellar_poc.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc.sh"
 
 LOCAL_STATE_DIR="${TMPDIR:-/tmp}/poc_dns_tunnel_file_client_test_$$"
 POC_RUN_ID="dns-tunnel-file-client-test"
@@ -39,7 +39,7 @@ EFFECTIVE_REPORT_DIR="${LOCAL_STATE_DIR}/report"
 DRY_RUN=true
 mkdir -p "${LOCAL_STATE_DIR}" "${LOG_DIR}"
 
-if python3 -m py_compile "${ROOT}/stellar_dns_tunnel_file_client.py" 2>/dev/null; then
+if python3 -m py_compile "${ROOT}/legacy/bash-poc/stellar_dns_tunnel_file_client.py" 2>/dev/null; then
     pass "stellar_dns_tunnel_file_client.py syntax OK"
 else
     fail "stellar_dns_tunnel_file_client.py syntax error"

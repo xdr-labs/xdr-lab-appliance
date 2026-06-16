@@ -26,7 +26,7 @@ export DNS_TUNNEL_MAX_SENT_CAP=12000
 export REMOTE_STATE_DIR="/tmp/.poc_runtime_root/state"
 
 # shellcheck disable=SC1091
-source "${ROOT}/stellar_poc.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc.sh"
 
 LOCAL_STATE_DIR="${TMPDIR:-/tmp}/poc_e2e_val_test_$$"
 POC_RUN_ID="e2e-val-test"

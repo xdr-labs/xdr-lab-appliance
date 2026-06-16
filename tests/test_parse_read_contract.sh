@@ -21,9 +21,9 @@ export HTTP_SCAN_WAVE_SLEEP=1 HTTP_SCAN_WAVE_ATTEMPT_CAP=20
 export ATTACKER_IP="127.0.0.1"
 
 # shellcheck disable=SC1091
-source "${ROOT}/stellar_poc.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc.sh"
 # shellcheck disable=SC1091
-source "${ROOT}/stellar_poc_followup.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc_followup.sh"
 
 # 1) normalize_http_scan_target_fields must be one line for read <<<
 norm=$(normalize_http_scan_target_fields "221.139.249.110" "80" "http")
@@ -40,7 +40,7 @@ for needle in \
     "bash <<'HTTP_SCAN_SCRIPT'" \
     "dns_remote_script_open 'DNS_ENHANCED_SCRIPT'" \
     "remote_bash_script_open 'INTERNAL_FANOUT_SCRIPT'"; do
-    if grep -qF "${needle}" "${ROOT}/stellar_poc_followup.sh"; then
+    if grep -qF "${needle}" "${ROOT}/legacy/bash-poc/stellar_poc_followup.sh"; then
         pass "wrapper present: ${needle}"
     else
         fail "missing wrapper: ${needle}"

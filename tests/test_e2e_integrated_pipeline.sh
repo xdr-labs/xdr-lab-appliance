@@ -28,7 +28,7 @@ export EXTERNAL_CALLBACK_ATTEMPTED=1
 export TELEMETRY_VAL_EXTERNAL_CALLBACK=success
 
 # shellcheck disable=SC1091
-source "${ROOT}/stellar_poc.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc.sh"
 
 LOCAL_STATE_DIR="${TMPDIR:-/tmp}/poc_e2e_integ_$$"
 POC_RUN_ID="e2e-integ"

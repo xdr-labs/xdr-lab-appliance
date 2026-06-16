@@ -11,8 +11,10 @@ logs/
 *.log
 *.log.*
 runtime/
-!detection-scenario-platform/dsp/runtime/
-!detection-scenario-platform/dsp/runtime/**
+
+# DSP source lives in xdr-poc-script — never vendor under appliance
+detection-scenario-platform/
+xdr-poc-script/
 
 # --- Secrets / local environment -------------------------------------
 .env

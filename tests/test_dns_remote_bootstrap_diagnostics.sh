@@ -24,7 +24,7 @@ export REMOTE_STATE_DIR="${LOCAL_STATE_DIR}/remote_state"
 mkdir -p "${REMOTE_STATE_DIR}/events" "${LOG_DIR}"
 
 # shellcheck disable=SC1091
-source "${ROOT}/stellar_poc.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc.sh"
 
 LOCAL_STATE_DIR="${TMPDIR:-/tmp}/poc_dns_bootstrap_test_$$"
 POC_RUN_ID="dns-bootstrap-test"
@@ -51,7 +51,7 @@ class=$(net_sim_dns_tunnel_classify_bootstrap_failure "event_file_missing")
 [[ "${class}" == event_file_missing ]] && pass "classify event_file_missing" || fail "got ${class}"
 
 # Local precheck: script missing
-py_save="${ROOT}/stellar_dns_tunnel_file_client.py"
+py_save="${ROOT}/legacy/bash-poc/stellar_dns_tunnel_file_client.py"
 py_bak="${LOCAL_STATE_DIR}/stellar_dns_tunnel_file_client.py.bak"
 if [[ -f "${py_save}" ]]; then
     cp -f "${py_save}" "${py_bak}" 2>/dev/null || true

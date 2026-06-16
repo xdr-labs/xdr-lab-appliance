@@ -3,6 +3,7 @@
 set -Eeuo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+POC_DIR="${ROOT}/legacy/bash-poc"
 cd "${ROOT}"
 
 failures=0
@@ -10,11 +11,11 @@ pass() { printf '[PASS] %s\n' "$1"; }
 fail() { printf '[FAIL] %s\n' "$1"; failures=$((failures + 1)); }
 
 # --- 0. Bundle version manifest ---
-if [[ -f "${ROOT}/stellar_poc.version" ]]; then
+if [[ -f "${POC_DIR}/stellar_poc.version" ]]; then
     pass "stellar_poc.version present"
-    bundle_ver="$(tr -d '[:space:]' < "${ROOT}/stellar_poc.version")"
+    bundle_ver="$(tr -d '[:space:]' < "${POC_DIR}/stellar_poc.version")"
     for f in stellar_poc.sh stellar_poc_humanize.sh stellar_poc_followup.sh stellar_poc_fast_safe.sh stellar_poc_event_sot.sh stellar_poc_network_simulators.sh stellar_dns_tunnel_file_client.py stellar_poc_evidence_validation.sh; do
-        hdr_ver=$(grep -m1 '^# @stellar-poc-version:' "${ROOT}/${f}" 2>/dev/null | awk '{print $3}')
+        hdr_ver=$(grep -m1 '^# @stellar-poc-version:' "${POC_DIR}/${f}" 2>/dev/null | awk '{print $3}')
         if [[ "${hdr_ver}" == "${bundle_ver}" ]]; then
             pass "version match ${f}=${bundle_ver}"
         else
@@ -27,7 +28,7 @@ fi
 
 # --- 1. Syntax ---
 for f in stellar_poc.sh stellar_poc_humanize.sh stellar_poc_followup.sh stellar_poc_fast_safe.sh stellar_poc_event_sot.sh stellar_poc_evidence_validation.sh; do
-    if bash -n "${f}"; then
+    if bash -n "${POC_DIR}/${f}"; then
         pass "bash -n ${f}"
     else
         fail "bash -n ${f}"
@@ -36,7 +37,7 @@ done
 
 # --- 2. Self-check blocks present ---
 for f in stellar_poc_followup.sh stellar_poc_humanize.sh; do
-    if grep -q '_self_check' "${f}"; then
+    if grep -q '_self_check' "${POC_DIR}/${f}"; then
         pass "self-check block in ${f}"
     else
         fail "missing self-check block in ${f}"
@@ -46,7 +47,7 @@ done
 # --- 3. Required function definitions ---
 defs_file="$(mktemp)"
 for f in stellar_poc_humanize.sh stellar_poc_followup.sh stellar_poc_fast_safe.sh stellar_poc.sh; do
-    grep -E '^[a-zA-Z_][a-zA-Z0-9_]*\(\)' "${f}" | sed 's/().*//' >> "${defs_file}"
+    grep -E '^[a-zA-Z_][a-zA-Z0-9_]*\(\)' "${POC_DIR}/${f}" | sed 's/().*//' >> "${defs_file}"
 done
 sort -u "${defs_file}" -o "${defs_file}"
 
@@ -138,7 +139,7 @@ SSH_BURST_ATTEMPTS=100
 PIPELINE_OVERLAP=false
 
 # shellcheck disable=SC1091
-source "${ROOT}/stellar_poc.sh"
+source "${ROOT}/legacy/bash-poc/stellar_poc.sh"
 
 # Re-apply test paths (source resets globals)
 LOCAL_STATE_DIR="${smoke_env}/state"
@@ -491,7 +492,7 @@ rm -rf "${smoke_env}" "${defs_file}"
 
 # --- 5. Dry-run CLI ---
 dry_out="$(mktemp)"
-if ./stellar_poc.sh --dry-run --target-net 221.139.249.0/24 --webshell http://127.0.0.1/shell.jsp \
+if ./legacy/bash-poc/stellar_poc.sh --dry-run --target-net 221.139.249.0/24 --webshell http://127.0.0.1/shell.jsp \
     --attacker-ip 221.139.249.110 --attacker-port 5000 >"${dry_out}" 2>&1; then
     pass "stellar_poc.sh --dry-run exit 0"
 else
@@ -508,7 +509,7 @@ fi
 # --- 6. Single-stage dry-run smoke ---
 for stage in service_discovery http_followup ssh_auth_burst edr_static_detection_test; do
     stage_out="$(mktemp)"
-    if ./stellar_poc.sh --dry-run --single-stage "${stage}" --target-net 221.139.249.0/24 \
+    if ./legacy/bash-poc/stellar_poc.sh --dry-run --single-stage "${stage}" --target-net 221.139.249.0/24 \
         --webshell http://127.0.0.1/shell.jsp --attacker-ip 221.139.249.110 --attacker-port 5000 \
         >"${stage_out}" 2>&1; then
         if grep -q "command not found" "${stage_out}"; then

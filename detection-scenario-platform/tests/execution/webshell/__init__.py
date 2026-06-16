@@ -1,1 +1,0 @@
-"""Webshell contract test package."""
