@@ -18,7 +18,7 @@ This repository is **not** the DSP / PoC scenario source of truth.
 |---------------------|-------------|
 | `detection-scenario-platform/` subtree | External clone of `xdr-poc-script` |
 | Editable DSP Python under appliance | `/home/aella/xdr-poc-script` |
-| New DSP features in appliance | `RickLee-kr/xdr-poc-script` |
+| New DSP features in appliance | `xdr-labs/xdr-poc-script` |
 
 ## Legacy bash PoC
 
@@ -30,6 +30,6 @@ only. They are **not** used by `aella_cli` or deployment workflows.
 Before committing in this repository:
 
 1. `pwd` ends with `xdr-lab-appliance` (not `xdr-poc-script`).
-2. `git remote -v` shows `RickLee-kr/xdr-lab-appliance.git`.
+2. `git remote -v` shows `xdr-labs/xdr-lab-appliance.git`.
 3. No `detection-scenario-platform/` or `dsp/` package trees are being added.
 4. DSP code changes belong in **xdr-poc-script**, not here.

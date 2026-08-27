@@ -14,7 +14,7 @@ if not _DSP_ROOT.is_dir():
     sys.stderr.write(
         "DSP checkout not found.\n"
         f"  Expected: {_DSP_ROOT}\n"
-        "  Clone: git clone git@github.com:RickLee-kr/xdr-poc-script.git\n"
+        "  Clone: git clone git@github.com:xdr-labs/xdr-poc-script.git\n"
         "  Or set XDR_POC_SCRIPT_ROOT to your checkout path.\n"
         "  See docs/DSP_EXTERNAL_DEPENDENCY.md\n"
     )

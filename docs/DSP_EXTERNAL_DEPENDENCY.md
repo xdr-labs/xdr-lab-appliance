@@ -7,14 +7,14 @@ Appliance repository.
 
 | Item | Value |
 |------|-------|
-| Repository | `git@github.com:RickLee-kr/xdr-poc-script.git` |
+| Repository | `git@github.com:xdr-labs/xdr-poc-script.git` |
 | Active branch | `release/v1.4.0-rc` |
 | Local path (operator default) | `/home/aella/xdr-poc-script` |
 
 ## Install / update
 
 ```bash
-git clone git@github.com:RickLee-kr/xdr-poc-script.git
+git clone git@github.com:xdr-labs/xdr-poc-script.git
 cd xdr-poc-script
 git checkout release/v1.4.0-rc
 python3 -m venv .venv

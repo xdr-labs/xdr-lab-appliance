@@ -8,7 +8,7 @@ only.
 
 | Item | Detail |
 |------|--------|
-| **Replacement** | [xdr-poc-script](https://github.com/RickLee-kr/xdr-poc-script) (`dsp` Python package) |
+| **Replacement** | [xdr-poc-script](https://github.com/xdr-labs/xdr-poc-script) (`dsp` Python package) |
 | **Appliance workflow** | Does **not** use these scripts (`aella_cli`, bootstrap, installer) |
 | **Maintenance** | No new features; bugfixes belong in `xdr-poc-script` |
 
@@ -30,7 +30,7 @@ cd /path/to/xdr-lab-appliance/legacy/bash-poc
 For current detection scenario work, clone and use **xdr-poc-script** instead:
 
 ```bash
-git clone git@github.com:RickLee-kr/xdr-poc-script.git
+git clone git@github.com:xdr-labs/xdr-poc-script.git
 cd xdr-poc-script
 git checkout release/v1.4.0-rc
 ```

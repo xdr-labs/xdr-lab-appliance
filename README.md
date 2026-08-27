@@ -13,7 +13,7 @@ runtime engine.
 > read-only references until the operator confirms migration parity.
 
 > **DSP / PoC scenarios** are **not** maintained in this repository. Use the
-> external repo `git@github.com:RickLee-kr/xdr-poc-script.git` (branch
+> external repo `git@github.com:xdr-labs/xdr-poc-script.git` (branch
 > `release/v1.4.0-rc`). See `docs/DSP_EXTERNAL_DEPENDENCY.md` and
 > `docs/REPOSITORY_BOUNDARY.md`. Do **not** commit a `detection-scenario-platform/`
 > subtree here.
