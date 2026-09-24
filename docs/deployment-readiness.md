@@ -42,7 +42,7 @@ cloud-image tooling, Python 3, jq, curl).
 | --- | --- | --- |
 | sensor-vm | 4 | 6144 |
 | windows-victim | 2 | 4096 |
-| linux-server | 2 | 2048 |
+| victim-linux | 2 | 2048 |
 | test-vm1 | 1 | 1024 |
 | **Declared guest totals** | **9** | **13312** (~13 GiB) |
 
@@ -72,7 +72,7 @@ libvirt internal snapshots, and logs/state under `${XDR_BASE}` (default
 | --- | --- |
 | sensor-vm | 80 |
 | windows-victim | 60 |
-| linux-server | 40 |
+| victim-linux | 40 |
 | test-vm1 | 20 |
 | **Sum** | **200** |
 
@@ -93,12 +93,12 @@ guest growth.
 ## 4. Snapshot storage expectations
 
 - Snapshots are created through **`aella_cli lab snapshot create`** (batch
-  over the core trio: sensor-vm, linux-server, windows-victim — see
+  over the core trio: sensor-vm, victim-linux, windows-victim — see
   `README.md` §9 and `docs/specs/009-snapshot-runtime/spec.md` for the
   governance model).
 - **qcow2 internal snapshots** increase backing-file size nonlinearly with
   write churn during scenarios. After repeated live CALDERA runs, expect
-  **notable growth** on `windows-victim` and `linux-server` disks first.
+  **notable growth** on `windows-victim` and `victim-linux` disks first.
 - **Operational rule**: keep free space on the volume that holds
   `${LIBVIRT_IMAGE_DIR}` and runtime paths above **20–30%** before large
   scenario campaigns.
@@ -148,7 +148,7 @@ High-level view (same story as `README.md` §2):
 - **Static addressing**: Per-VM IPs from `lab-vms.json` and cloud-init
   seeds — **no lab DHCP**.
 - **Reverse NAT**: Golden port map (e.g. 1022 → sensor-vm:22, 2022 →
-  linux-server:22, 3389 → windows-victim:3389) — see `README.md` §5.1.
+  victim-linux:22, 3389 → windows-victim:3389) — see `README.md` §5.1.
 
 ---
 
