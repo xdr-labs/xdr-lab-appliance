@@ -215,7 +215,7 @@ aella_cli lab scenario agent status
 | `validate-sensor-identity.sh` | Exit **0** with `stellar_sensor_ready=true`, `sensor_capture_nic_present=true`, `sensor_capture_nic_has_ip=false`, `sensor_capture_nic_mirror_target=true` |
 | `validate-ovs-mirror.sh` | Exit **0** with `mirror_bound_to_capture_interface=true`; management NIC as output-port is FAIL |
 | `validate-caldera.sh` | Exit **0** or documented bind on `127.0.0.1` only with guest path waived |
-| Guest gateway | From `linux-server`: `ping -c2 10.10.10.1` |
+| Guest gateway | From `victim-linux`: `ping -c2 10.10.10.1` |
 | Sandcat | `agent status` shows expected roles after reboot |
 
 If post-reboot validation **always** requires `fix-runtime-state.sh`, the
