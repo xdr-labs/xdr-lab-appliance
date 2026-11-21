@@ -94,7 +94,6 @@ jobs:
           expected = {
               ".engineering/governance-migration.yaml",
               ".engineering/project.yaml",
-              ".github/workflows/engineering-release.yml",
               ".github/workflows/engineering-system.yml",
               "schemas/user-acceptance-evidence.schema.json",
               "tools/coordinator.py",
